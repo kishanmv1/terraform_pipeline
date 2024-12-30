@@ -1,15 +1,15 @@
 variable "rgname" {
-    default= "prabhasvm"
+    default= ""
 }
 
 variable "location" {
-    default= "canada central"
+    default= ""
 }
 
 variable "aspname"{
-    default= "prabhasanushkaplan"
+    default= ""
 }
 
 variable "size" {
-    default= "s1"
+    default= ""
 }
