@@ -9,3 +9,7 @@ variable "location" {
 variable "aspname"{
     default= "prabhasanushkaplan"
 }
+
+variable "size" {
+    default= "s1"
+}

@@ -19,17 +19,17 @@ provider "azurerm" {
   subscription_id = "9666140b-b7a7-4d21-af05-8d51145d043f"
 }
 resource "azurerm_resource_group" "kishan" {
-  name     = "rg_terraform"
-  location = "westus3"
+  name     = var.rgname
+  location = var.location
 }
 resource "azurerm_app_service_plan" "kishan_plan" {
-  name                = "kishan-appserviceplan"
-  location            = "canada central"
+  name                = var.aspname
+  location            = var.location
   resource_group_name = azurerm_resource_group.kishan.name
 
   sku {
     tier = "Standard"
-    size = "S1"
+    size = var.size
   }
 }
 #resource "azurerm_app_service" "kishan" {
