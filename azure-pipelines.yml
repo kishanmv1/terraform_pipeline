@@ -19,6 +19,8 @@ stages:
               backendServiceArm: 'prac2024'
               backendAzureRmResourceGroupName: 'rg_terraform_pipelin'
               backendAzureRmStorageAccountName: 'kishanstorageaccount123'
+              backendAzureRmContainerName: 'kishan'
+              backendAzureRmKey: '''tf/terraform.tfstate'''
           - task: TerraformTaskV4@4
             inputs:
               provider: 'azurerm'
