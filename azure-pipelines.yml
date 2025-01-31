@@ -1,4 +1,5 @@
 trigger:
+
   - main
 
 pool:
@@ -27,3 +28,10 @@ stages:
               command: 'apply'
               commandOptions: '-var-file="dev.tfvars"'
               environmentServiceNameAzureRM: 'prac2024'
+            
+          - task: TerraformTaskV4@4
+            inputs:
+               provider: 'azurerm'
+               command: 'destroy'
+               commandOptions: '-var-file="dev.tfvars"'
+               environmentServiceNameAzureRM: 'prac2024'  
