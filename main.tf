@@ -5,14 +5,13 @@ terraform {
       version = "~>3.0"
     }
   }
-  backend "azurerm" {
-    resource_group_name = "rg_terraform_pipeline"
-    storage_account_name = "kishanstorageaccount123"
-    container_name = "kishan"
-    key = "terraform.tfstate"
+ # backend "azurerm" {
+  #  resource_group_name = "rg_terraform_pipeline"
+   #container_name = "kishan"
+   # key = "terraform.tfstate"
     
-  }
-}
+  #}
+#}
 
 provider "azurerm" {
   features {}
