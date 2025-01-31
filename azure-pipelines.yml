@@ -1,7 +1,9 @@
 trigger:
- - main
-pool
- vmimage:ubuntu-latest
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
 stages:
   - stage: stageterraform
     jobs:
