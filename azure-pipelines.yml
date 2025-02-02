@@ -9,5 +9,5 @@ stages:
     jobs:
       - job: jobterraform
         steps:
-        - template: steps.yaml
-        
+          - template: steps.yaml
+         
