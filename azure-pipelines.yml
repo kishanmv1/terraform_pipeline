@@ -1,6 +1,5 @@
 trigger:
-
-  - main
+ - main
 
 pool:
   vmImage: ubuntu-latest
@@ -10,28 +9,5 @@ stages:
     jobs:
       - job: jobterraform
         steps:
-          - task: TerraformInstaller@1
-            inputs:
-              terraformVersion: 'latest'
-          - task: TerraformTaskV4@4
-            inputs:
-              provider: 'azurerm'
-              command: 'init'
-              backendServiceArm: 'prac2024'
-              backendAzureRmResourceGroupName: 'rg_terraform_pipelin'
-              backendAzureRmStorageAccountName: 'kishanstorageaccount123'
-              backendAzureRmContainerName: 'kishan'
-              backendAzureRmKey: '''tf/terraform.tfstate'''
-          - task: TerraformTaskV4@4
-            inputs:
-              provider: 'azurerm'
-              command: 'apply'
-              commandOptions: '-var-file="dev.tfvars"'
-              environmentServiceNameAzureRM: 'prac2024'
-            
-          - task: TerraformTaskV4@4
-            inputs:
-               provider: 'azurerm'
-               command: 'destroy'
-               commandOptions: '-var-file="dev.tfvars"'
-               environmentServiceNameAzureRM: 'prac2024'  
+        - template: steps.yaml
+        
