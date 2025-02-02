@@ -1,7 +1,7 @@
           - task: TerraformInstaller@1
             inputs:
               terraformVersion: 'latest'
-          - task: TerraformTaskV4@4
+         - task: TerraformTaskV4@4
             inputs:
               provider: 'azurerm'
               command: 'init'
