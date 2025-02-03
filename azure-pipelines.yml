@@ -4,6 +4,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+ stagename: 'stageterraform'
+
 parameters:
   - name: city
     default: canadacentral
