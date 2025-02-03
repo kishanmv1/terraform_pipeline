@@ -7,6 +7,7 @@ steps:
     inputs:
       provider: 'azurerm'
       command: 'init'
+      commandOptions: '-reconfigure'
       backendServiceArm: 'prac2024'
       backendAzureRmResourceGroupName: 'rg_terraform_pipelin'
       backendAzureRmStorageAccountName: '$(storageaccount)'
