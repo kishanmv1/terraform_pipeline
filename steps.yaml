@@ -12,7 +12,7 @@ steps:
       backendAzureRmResourceGroupName: 'rg_terraform_pipelin'
       backendAzureRmStorageAccountName: '$(storageaccount)'
       backendAzureRmContainerName: 'kishan'
-      backendAzureRmKey: 'tf/terraform.tfstate'
+      backendAzureRmKey: 'tf/terraform.tfstate
 
   - task: TerraformTaskV4@4
     inputs:
