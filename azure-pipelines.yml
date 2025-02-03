@@ -4,6 +4,14 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+parameters:
+  - name: city
+    default: canadacentral
+    values:
+      - canadacentral
+      - eastus3
+      - westus3
+
 stages:
   - stage: stageterraform
     jobs:
