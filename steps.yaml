@@ -10,7 +10,7 @@ steps:
       commandOptions: '-reconfigure'
       backendServiceArm: 'prac2024'
       backendAzureRmResourceGroupName: 'rg_terraform_pipelin'
-     # backendAzureRmStorageAccountName: '$(storageaccount)'
+      backendAzureRmStorageAccountName: '$(storageaccount)'
       backendAzureRmContainerName: 'kishan'
       backendAzureRmKey: 'tf/terraform.tfstate'
 
