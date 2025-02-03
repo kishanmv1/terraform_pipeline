@@ -23,5 +23,5 @@ stages:
           - template: steps.yaml
       - job: jobterraform2
         steps:
-          - template: 
+          - template: steps2.yaml
          
