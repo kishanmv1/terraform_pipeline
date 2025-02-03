@@ -1,1 +1,6 @@
-
+ - task: TerraformTaskV4@4
+    inputs:
+      provider: 'azurerm'
+      command: 'apply'
+      commandOptions: '-var-file="dev.tfvars"'
+      environmentServiceNameAzureRM: 'prac2024'
