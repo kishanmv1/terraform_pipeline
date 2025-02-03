@@ -19,5 +19,5 @@ steps:
     inputs:
       provider: 'azurerm'
       command: 'destroy'
-      commandOptions: '-var-file=''dev.tfvars'''
+      commandOptions: '-var-file="dev.tfvars"'
       environmentServiceNameAzureRM: 'prac2024'
