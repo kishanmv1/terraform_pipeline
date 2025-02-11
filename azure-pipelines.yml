@@ -23,7 +23,7 @@ stages:
           - template: steps.yaml
       - job: jobterraform2
         dependsOn: jobterraform
-        condition: failed()
+       # condition: failed()
         steps:
           - template: steps2.yaml
          
