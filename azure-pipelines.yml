@@ -25,6 +25,9 @@ stages:
     jobs:
       - job: buildjob
         steps:
+        - script: ls -la /home/vsts/work/1/s
+          displayName: "Check Terraform Files"
+
         - task: CopyFiles@2
           inputs:
             SourceFolder: '$(agent.builddirectory)'
