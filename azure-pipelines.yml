@@ -36,6 +36,22 @@ stages:
             downloadType: 'single'
             artifactName: 'drop'
             downloadPath: '$(System.ArtifactsDirectory)'
+  - stage: cdstage
+    jobs:
+      - job: cdjob
+      - deployment: devdeploy
+        environment: 'DEV'
+        strategy: 
+         runOnce:
+           deploy:
+             steps:
+               - template: steps.yaml
+               - template: steps2.yaml
+              
+        
+         
+    
+
 
 
 
