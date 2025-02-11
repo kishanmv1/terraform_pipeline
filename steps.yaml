@@ -23,6 +23,6 @@ steps:
     inputs:
       provider: 'azurerm'
       command: 'plan'
-      workingDirectory: "$(System.DefaultWorkingDirectory)/terraform"
+      workingDirectory: "$(System.ArtifactsDirectory)/drop/s"
       commandOptions: '-var-file="dev.tfvars"-detailed-exitcode'
       environmentServiceNameAzureRM: 'prac2024'
