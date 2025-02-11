@@ -18,5 +18,6 @@ steps:
     inputs:
       provider: 'azurerm'
       command: 'plan'
+      workingDirectory: "$(System.DefaultWorkingDirectory)/terraform"
       commandOptions: '-var-file="dev.tfvars"'
       environmentServiceNameAzureRM: 'prac2024'
