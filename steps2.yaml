@@ -14,7 +14,7 @@ steps:
       provider: 'azurerm'
       command: 'apply'
       workingDirectory: "$(System.DefaultWorkingDirectory)/terraform"
-      commandOptions: '-var-file="dev.tfvars"-detailed-exitcode'
+      commandOptions: '-var-file="dev.tfvars"'
       environmentServiceNameAzureRM: 'prac2024'
   - task: TerraformTaskV4@4
     inputs:
