@@ -14,16 +14,29 @@ parameters:
       - canadacentral
       - eastus3
       - westus3
-
 stages:
-  - stage: stageterraform
+  - stage: buildstage
     jobs:
-      - job: jobterraform
+      - job: buildjob
         steps:
-          - template: steps.yaml
-      - job: jobterraform2
-        dependsOn: jobterraform
-       # condition: failed()
-        steps:
-          - template: steps2.yaml
-         
+        - task: CopyFiles@2
+          inputs:
+            SourceFolder: '$(agent.builddirectory)'
+            Contents: '**'
+            TargetFolder: '$(build.artifactstagingdirectory)'
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+            ArtifactName: 'drop'
+            publishLocation: 'Container'
+            MaxArtifactSize: 1
+        - task: DownloadBuildArtifacts@1
+          inputs:
+            buildType: 'current'
+            downloadType: 'single'
+            artifactName: 'drop'
+            downloadPath: '$(System.ArtifactsDirectory)'
+
+
+
+
