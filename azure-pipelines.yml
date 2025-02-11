@@ -14,6 +14,12 @@ parameters:
       - canadacentral
       - eastus3
       - westus3
+  - name: vmimage
+    default: ubuntu-latest
+    values:
+      - ubuntu-latest
+      - windows-latest
+
 stages:
   - stage: buildstage
     jobs:
