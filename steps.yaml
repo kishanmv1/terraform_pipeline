@@ -13,6 +13,11 @@ steps:
       backendAzureRmStorageAccountName: '$(storageaccount)'
       backendAzureRmContainerName: 'kishan'
       backendAzureRmKey: 'tf/terraform.tfstate'
+  - script: |
+    export PATH=$PATH:/usr/local/bin:/opt/hostedtoolcache/terraform/1.10.5/x64/
+    terraform --version
+    displayName: "Set Terraform Path"
+
 
   - task: TerraformTaskV4@4
     inputs:
