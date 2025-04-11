@@ -1,47 +1,25 @@
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "~>3.0"
-    }
-  }
-  backend "azurerm" {
-    resource_group_name = "rg_terraform_pipeline"
-    storage_account_name = "kishanstorageaccount123"
-    container_name = "kishan"
-    key = "terraform.tfstate"
-    
-  }
-}
-
 provider "azurerm" {
   features {}
-  subscription_id = var.subscription_id
-  
-}
+  subscription_id = var.subscription_id 
+} 
+
 module "resource_group" {
-  source = "./modules"
+  source = "./modules/resource_group"
   rgname = var.rgname
   location = var.location
-  subscription_id = var.subscription_id
- 
-  
 }
-data "azurerm_app_service_plan" "kishan_plan" {
-  name                = var.aspname
-  location            = var.location
-  resource_group_name = azurerm_resource_group.kishan.name
-  
+
+data "appserviceplan" "appserviceplan" {
+  name = var.aspname
+  location = var.location
+  resource_group_name = module.resource_group.rgname 
 }
 
 module "app_service" {
-  source = "./modules"
-  rgname = var.rgname
+  source = "./modules/app_service"
+  webapp_name = var.webapp_name
   location = var.location
-  aspname = var.aspname
-  size = var.size
-  subscription_id = var.subscription_id
-
+  rgname = module.resource_group.rgname 
+  appservice_plan_name = data.appserviceplan.appserviceplan.id
   
 }
-
