@@ -22,4 +22,4 @@ module "app_service" {
   rgname = module.resource_group.rgname 
   appservice_plan_name = data.appserviceplan.appserviceplan.id
   
-}
+} 
