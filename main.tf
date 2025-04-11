@@ -7,7 +7,8 @@ terraform {
   }
   backend "azurerm" {
     resource_group_name = "rg_terraform_pipeline"
-   container_name = "kishan"
+    storage_account_name = "kishanstorageaccount123"
+    container_name = "kishan"
     key = "terraform.tfstate"
     
   }
@@ -15,32 +16,32 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = "9666140b-b7a7-4d21-af05-8d51145d043f"
+  subscription_id = var.subscription_id
+  
 }
-resource "azurerm_resource_group" "kishan" {
-  name     = var.rgname
+module "resource_group" {
+  source = "./modules"
+  rgname = var.rgname
   location = var.location
+  subscription_id = var.subscription_id
+ 
+  
 }
-resource "azurerm_app_service_plan" "kishan_plan" {
+data "azurerm_app_service_plan" "kishan_plan" {
   name                = var.aspname
   location            = var.location
   resource_group_name = azurerm_resource_group.kishan.name
-
-  sku {
-    tier = "Standard"
-    size = var.size
-  }
-}
-#resource "azurerm_app_service" "kishan" {
- # name                = "kishanwebapp"
-  #location            = azurerm_resource_group.kishan.location
-  #resource_group_name = azurerm_resource_group.kishan.name
-  #app_service_plan_id = "/subscriptions/9666140b-b7a7-4d21-af05-8d51145d043f/resourceGroups/rg_terraform/providers/Microsoft.Web/serverFarms/kishan-appserviceplan"
   
-  #site_config {
-   # dotnet_framework_version = "v4.0"
-    #scm_type                 = "LocalGit"
-  #}
+}
 
- 
-  #}
+module "app_service" {
+  source = "./modules"
+  rgname = var.rgname
+  location = var.location
+  aspname = var.aspname
+  size = var.size
+  subscription_id = var.subscription_id
+
+  
+}
+

@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"app_service","Source":"./modules","Dir":"modules"},{"Key":"appservise_module","Source":"./modules/app_service.tf","Dir":"modules/app_service.tf"}]}
